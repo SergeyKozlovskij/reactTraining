@@ -1,27 +1,57 @@
 export default [
     {
         "id": "1",
-        "date": "2018-03-06",
-        "title": "Title here",
-        "text": "There is a some text",
-        "comments": [
+        "name": "user1",
+        "roles": [
             {
                 "id": "1",
-                "user": "user1",
-                "text": "comment text"
+                "name": "admin",
+                "permissions": [{
+                    "id": "1",
+                    "name" : "viewAdminPage"
+                }]
             }
         ]
     },
     {
         "id": "2",
-        "date": "2018-03-07",
-        "title": "Title here2",
-        "text": "There is a some text2",
-        "comments": [
+        "name": "user2",
+        "roles": [
             {
                 "id": "1",
-                "user": "user1",
-                "text": "comment text"
+                "name": "admin",
+                "permissions": [{
+                    "id": "1",
+                    "name" : "viewAdminPage"
+                }]
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "name": "user3",
+        "roles": [
+            {
+                "id": "1",
+                "name": "admin",
+                "permissions": [{
+                    "id": "1",
+                    "name" : "viewAdminPage"
+                }]
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "user4",
+        "roles": [
+            {
+                "id": "1",
+                "name": "admin",
+                "permissions": [{
+                    "id": "1",
+                    "name" : "viewAdminPage"
+                }]
             }
         ]
     }
