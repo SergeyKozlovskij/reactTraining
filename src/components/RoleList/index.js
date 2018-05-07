@@ -4,14 +4,29 @@ import roles from '../../fixtures'
 import './style.css'
 
 class UserTable extends Component {
+
+
     roles = roles.map((role, index) => {
-        return (<Role role={role} index={index}/>)
+        return (
+            <tr>
+                <td>{index + 1}</td>
+                <td className="role_li" key={role.id}>{role.roleCode}</td>
+                <td>{role.permissions.map(permission => {
+                    return permission.permissionCode;
+                }).concat(", ")}</td>
+            </tr>
+        )
     });
 
     render() {
-        return (
-            <ul>{this.roles}</ul>
-        )
+        return (<table className="table table-striped table-bordered">
+            <tr>
+                <th>#</th>
+                <th>RoleCode</th>
+                <th>Permissions</th>
+            </tr>
+            <tbody>{this.roles}</tbody>
+        </table>)
     }
 }
 
