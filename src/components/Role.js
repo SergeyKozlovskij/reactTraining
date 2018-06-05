@@ -16,11 +16,12 @@ class Role extends Component {
                 <td>{index + 1}</td>
                 <td className="role_li" key={role.id}>{role.roleCode}</td>
                 <td>
-                    <button onClick={this.expandPermission}>>></button>
+                    <button className="btn btn-default btn-sm" onClick={this.expandPermission}>>></button>
                 </td>
                 <td>
                     {this.state.permissionOpen && role.permissions.map(permission => permission.permissionCode).join(", ")}
                 </td>
+                <td><a href={"/edit?roleId=" + role.id}><button className="btn btn-default btn-sm">&#x270E;</button></a></td>
             </tr>
         )
     }

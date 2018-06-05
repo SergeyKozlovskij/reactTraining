@@ -13,12 +13,13 @@ class RoleTable extends Component {
         return (<table className="table table-striped table-bordered">
             <tbody>
             <tr>
-                <th>#</th>
-                <th>RoleCode</th>
-                <th>Expand</th>
-                <th>Permissions</th>
+                <th width="1%">#</th>
+                <th width="10%">RoleCode</th>
+                <th width="3%">Expand</th>
+                <th width="85%">Permissions</th>
+                <th width="1%">Edit</th>
             </tr>
-            {this.roles}
+                {this.roles}
             </tbody>
         </table>)
     }
