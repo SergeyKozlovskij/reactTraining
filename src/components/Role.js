@@ -21,7 +21,7 @@ class Role extends Component {
                 <td>
                     {this.state.permissionOpen && role.permissions.map(permission => permission.permissionCode).join(", ")}
                 </td>
-                <td><a href={"/edit?roleId=" + role.id}><button className="btn btn-default btn-sm">&#x270E;</button></a></td>
+                <td><a href={"/edit?" + role.id}><button className="btn btn-default btn-sm">&#x270E;</button></a></td>
             </tr>
         )
     }
