@@ -6,7 +6,8 @@ class Link extends Component {
         linkText: 'Click me',
         linkTarget: 'https://i.redd.it/ce8vxbsbjev21.jpg',
         newWindow: true,
-        linkColor: 'blue'
+        linkColor: 'blue',
+        linkColors: ['blue', 'red', 'green', 'black']
     };
 
     changeLinkText = (e) => {
@@ -56,10 +57,9 @@ class Link extends Component {
                             </div>
                             <select defaultValue={this.state.linkColor} onChange={this.changeLinkColor}
                                     className="form-control">
-                                <option value="blue">blue</option>
-                                <option value="red">red</option>
-                                <option value="green">green</option>
-                                <option value="black">black</option>
+                                {
+                                    this.state.linkColors.map(color => <option value={color} key={color}>{color}</option>)
+                                }
                             </select>
                         </div>
                     </div>

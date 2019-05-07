@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import _ from 'lodash'
 
 
 class Input extends Component {
@@ -6,7 +7,8 @@ class Input extends Component {
         inputTitle: 'Title',
         inputPlaceholder: 'Type here',
         inputType: 'text',
-        inputMaxLength: 15
+        inputMaxLength: 15,
+        inputTypes: ['text', 'number', 'email', 'color', 'range', 'time', 'week', 'month', 'date']
     };
 
     changeInputTitle = (e) => {
@@ -46,42 +48,13 @@ class Input extends Component {
                                    className="form-control"/>
                         </div>
                         <div className="input-group" onChange={this.changeInputType}>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='text'
-                                       defaultChecked={this.state.inputType === 'text'}/>Text
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='number'
-                                       defaultChecked={this.state.inputType === 'number'}/>Number
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='email'
-                                       defaultChecked={this.state.inputType === 'email'}/>Email
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='color'
-                                       defaultChecked={this.state.inputType === 'color'}/>Color
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='range'
-                                       defaultChecked={this.state.inputType === 'range'}/>Range
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='time'
-                                       defaultChecked={this.state.inputType === 'time'}/>Time
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='week'
-                                       defaultChecked={this.state.inputType === 'week'}/>Week
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='month'
-                                       defaultChecked={this.state.inputType === 'month'}/>Month
-                            </span>
-                            <span className="input-group-text">
-                                <input type="radio" name="inputType" value='date'
-                                       defaultChecked={this.state.inputType === 'date'}/>Date
-                            </span>
+                            {
+                                this.state.inputTypes.map(type =>
+                                    <span className="input-group-text" key={type}>
+                                        <input type="radio" name="inputType" value={type}
+                                               defaultChecked={this.state.inputType === type}/>{_.capitalize(type)}
+                                    </span>)
+                            }
                         </div>
                         <div className="input-group">
                             <div className="input-group-prepend">

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import _ from 'lodash'
 
 
 class Button extends Component {
@@ -6,6 +7,7 @@ class Button extends Component {
         buttonTitle: 'Title',
         outline: true,
         buttonClass: 'primary',
+        buttonClasses: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
         buttonWidth: 100,
         alertMessage: 'will be displayed on alert',
         disabled: false
@@ -71,14 +73,9 @@ class Button extends Component {
                             </div>
                             <select defaultValue={this.state.buttonClass} onChange={this.changeButtonClass}
                                     className="form-control">
-                                <option value="primary">Primary</option>
-                                <option value="secondary">Secondary</option>
-                                <option value="success">Success</option>
-                                <option value="danger">Danger</option>
-                                <option value="warning">Warning</option>
-                                <option value="info">Info</option>
-                                <option value="light">Light</option>
-                                <option value="dark">Dark</option>
+                                {
+                                    this.state.buttonClasses.map(buttonClass => <option value={buttonClass} key={buttonClass}>{_.capitalize(buttonClass)}</option>)
+                                }
                             </select>
                             <div className="input-group-append">
                                 <span className="input-group-text">
@@ -104,7 +101,9 @@ class Button extends Component {
                         </div>
                     </div>
                     <div className="col input-group">
-                        <button type="button" className={this.calculateButtonClass()} style={{'max-width': (this.state.buttonWidth + '%')}} onClick={this.showMessage} disabled={this.state.disabled}>{this.state.buttonTitle}</button>
+                        <button type="button" className={this.calculateButtonClass()}
+                                style={{'maxWidth': (this.state.buttonWidth + '%')}} onClick={this.showMessage}
+                                disabled={this.state.disabled}>{this.state.buttonTitle}</button>
                     </div>
                 </div>
             </div>

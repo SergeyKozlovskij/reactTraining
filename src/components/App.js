@@ -2,7 +2,11 @@ import React, {Component} from 'react'
 import Link from './Link'
 import Input from './Input'
 import Button from './Button'
+import Dropdown from './Dropdown'
 
+import 'jquery'
+import 'popper.js'
+import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
 
@@ -10,7 +14,8 @@ class App extends Component {
     state = {
         link: {isCollapsed: true},
         input: {isCollapsed: true},
-        button: {isCollapsed: true}
+        button: {isCollapsed: true},
+        dropdown: {isCollapsed: true}
     };
 
     toggleLink = () => {
@@ -23,6 +28,10 @@ class App extends Component {
 
     toggleButton = () => {
         this.setState({button: {isCollapsed: !this.state.button.isCollapsed}});
+    };
+
+    toggleDropdown = () => {
+        this.setState({dropdown: {isCollapsed: !this.state.dropdown.isCollapsed}});
     };
 
     render() {
@@ -50,6 +59,13 @@ class App extends Component {
                     </a>
                 </h3>
                 {this.state.button.isCollapsed ? null : <Button/>}
+                <h3 className="col-6">Dropdown
+                    <a onClick={this.toggleDropdown}>
+                        <span
+                            className={this.state.dropdown.isCollapsed ? 'glyphicon glyphicon-chevron-down' : 'glyphicon glyphicon-chevron-up'}></span>
+                    </a>
+                </h3>
+                {this.state.dropdown.isCollapsed ? null : <Dropdown/>}
             </div>
         )
     }
