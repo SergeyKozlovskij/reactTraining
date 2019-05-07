@@ -28,7 +28,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Here is some samples of react components</h1>
+                <h1>Here is some samples of react components, UI based on bootstrap CSS</h1>
                 <h3 className="col-6">Link
                     <a onClick={this.toggleLink}>
                         <span
