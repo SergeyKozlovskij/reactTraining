@@ -23,6 +23,10 @@ class Button extends Component {
         this.setState({buttonWidth: e.target.value})
     };
 
+    changeAlertMessage = (e) => {
+        this.setState({alertMessage: e.target.value})
+    };
+
     changeOutline = () => {
         this.setState({outline: !this.state.outline})
     };
