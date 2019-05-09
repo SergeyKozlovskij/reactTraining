@@ -3,6 +3,7 @@ import Link from './Link'
 import Input from './Input'
 import Button from './Button'
 import Dropdown from './Dropdown'
+import Alert from './Alert'
 
 import 'jquery'
 import 'popper.js'
@@ -15,7 +16,8 @@ class App extends Component {
         link: {isCollapsed: true},
         input: {isCollapsed: true},
         button: {isCollapsed: true},
-        dropdown: {isCollapsed: true}
+        dropdown: {isCollapsed: true},
+        alert: {isCollapsed: true}
     };
 
     toggleLink = () => {
@@ -32,6 +34,10 @@ class App extends Component {
 
     toggleDropdown = () => {
         this.setState({dropdown: {isCollapsed: !this.state.dropdown.isCollapsed}});
+    };
+
+    toggleAlert = () => {
+        this.setState({alert: {isCollapsed: !this.state.alert.isCollapsed}});
     };
 
     render() {
@@ -66,6 +72,13 @@ class App extends Component {
                     </a>
                 </h3>
                 {this.state.dropdown.isCollapsed ? null : <Dropdown/>}
+                <h3 className="col-6">Alert
+                    <a onClick={this.toggleAlert}>
+                        <span
+                            className={this.state.alert.isCollapsed ? 'glyphicon glyphicon-chevron-down' : 'glyphicon glyphicon-chevron-up'}></span>
+                    </a>
+                </h3>
+                {this.state.alert.isCollapsed ? null : <Alert/>}
             </div>
         )
     }
