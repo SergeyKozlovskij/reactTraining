@@ -2,13 +2,14 @@ import React, {Component} from 'react'
 import _ from 'lodash'
 
 
-class Alert extends Component {
+class BSAlert extends Component {
     state = {
         alertClasses: ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'],
         alertClass: 'primary',
         divider: true,
         alertHeader: 'Good Job!',
-        alertDescription: 'Here is some text'
+        alertDescription: 'Here is some text',
+        alertAdditionalDescription: 'Additional description'
     };
 
     changeAlertClass = (e) => {
@@ -21,6 +22,10 @@ class Alert extends Component {
 
     changeAlertDescription = (e) => {
         this.setState({alertDescription: e.target.value})
+    };
+
+    changeAlertAdditionalDescription = (e) => {
+        this.setState({alertAdditionalDescription: e.target.value})
     };
 
     calculateAlertClass = () => {
@@ -65,13 +70,21 @@ class Alert extends Component {
                                    onChange={this.changeAlertDescription}
                                    value={this.state.alertDescription}/>
                         </div>
+                        <div className="input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text">Additional Description</span>
+                            </div>
+                            <input type="text" aria-label="Header" className="form-control"
+                                   onChange={this.changeAlertAdditionalDescription}
+                                   value={this.state.alertAdditionalDescription}/>
+                        </div>
                     </div>
                     <div className="col input-group">
                         <div className={this.calculateAlertClass()} role="alert">
                             <h4 className="alert-heading">{this.state.alertHeader}</h4>
                             <p>{this.state.alertDescription}</p>
                             {this.state.divider ? <hr/> : null}
-                            <p className="mb-0">Additional description</p>
+                            <p className="mb-0">{this.state.alertAdditionalDescription}</p>
                         </div>
                     </div>
                 </div>
@@ -80,4 +93,4 @@ class Alert extends Component {
     }
 }
 
-export default Alert
+export default BSAlert
