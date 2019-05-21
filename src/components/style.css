@@ -13,3 +13,19 @@ h1 {
 body {
     background-color: aliceblue;
 }
+
+section {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+main {
+    padding-top: 10px;
+}
+
+main section:last-child {
+    border-bottom: 1px solid black;
+}
