@@ -4,6 +4,8 @@ import Input from './Input'
 import Button from './Button'
 import Dropdown from './Dropdown'
 import Alert from './Alert'
+import Users from './Users'
+import UserForm from './UserForm'
 
 import 'jquery'
 import 'popper.js'
@@ -43,6 +45,8 @@ class App extends Component {
     render() {
         return (
             <div>
+                <UserForm/>
+                <Users/>
                 <h1>Here is some samples of react components, UI based on bootstrap CSS</h1>
                 <h3 className="col-6">Link
                     <a onClick={this.toggleLink}>
